@@ -3,7 +3,7 @@
     <nav class="menu">
       <a id="menubtn" class="toggle-nav" href="#" @click="toggle">&#9776;</a>
       <div class="menu-logo">
-        <a>WEI UPWARD</a>
+        <a>Sample Blog</a>
       </div>
       <ul id="menuUl" :class="{ active: showtoggle }">
         <li
@@ -35,14 +35,14 @@ export default {
           id: 1,
           name: "projects",
           type: "projects",
-          txt: "專案項目",
+          txt: "文章",
           // icon: 'fa fa-tag context-menu__title-icon',
         },
         {
           id: 2,
           name: "contact",
           type: "contact",
-          txt: "聯絡我們",
+          txt: "關於我",
           // icon: 'fa fa-tag context-menu__title-icon',
         },
       ],
