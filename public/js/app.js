@@ -2122,15 +2122,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostList",
-  component: {}
+  component: {},
+  props: {}
 });
 
 /***/ }),
@@ -38677,7 +38681,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "weilist" })
+  return _c(
+    "div",
+    { staticClass: "weilist" },
+    _vm._l(_vm.postsdata, function(item, key, index) {
+      return _c("div")
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
