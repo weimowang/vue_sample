@@ -8,7 +8,6 @@
   </div>
 </template>
 <script>
-//------ menu ------
 import Header from "./Common/Header.vue";
 import Footer from "./Common/Footer.vue";
 
@@ -19,3 +18,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import '../../css/main.css';
+</style>

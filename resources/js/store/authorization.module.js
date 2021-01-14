@@ -9,11 +9,14 @@ const actions = {
 const getters = {
      currentUser(state) {
           return state.user;
+     },
+     check_Authenticated(state){
+          return state.isAuthenticated;
      }
 }
 
 const mutations = {
-     SET_AUTH(state, user){
+     set_auth(state, user){
           state.isAuthenticated = true;
           state.user = user;
      }
