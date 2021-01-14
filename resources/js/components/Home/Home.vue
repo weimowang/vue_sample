@@ -5,18 +5,6 @@
 
 <script>
 export default {
-  components: {
-  },
-  name: "Home",
-  data: function () {
-    return {
-    };
-  },
-  methods: {
-    
-  },
+  name: "Home"
 };
 </script>
-
-<style scoped>
-</style>
