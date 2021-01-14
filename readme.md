@@ -1,6 +1,9 @@
 
 ## Learning Laravel + VUE
-vue + laravel for my web 
+vue + laravel for my web <br /> 
+
+VUE:
+resources/js
 
 
 <h2>Getting started</h2><br /> 
