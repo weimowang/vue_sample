@@ -1,7 +1,7 @@
 <template>
      <div class="weilist">
-          <div v-for="(item,key,index) in postsdata">
-          </div>
+          <!-- <div v-for="(item,key,index) in postsdata">
+          </div> -->
      </div>
 </template>
 

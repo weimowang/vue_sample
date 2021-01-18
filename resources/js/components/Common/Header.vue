@@ -26,23 +26,16 @@ export default {
       menuData: [
         {
           id: 0,
-          name: "home",
-          type: "home",
+          name: "Home",
+          type: "Home",
           txt: "首頁",
           // icon: 'fa fa-tag context-menu__title-icon',
         },
         {
-          id: 1,
-          name: "projects",
-          type: "projects",
-          txt: "文章",
-          // icon: 'fa fa-tag context-menu__title-icon',
-        },
-        {
           id: 2,
-          name: "contact",
-          type: "contact",
-          txt: "關於我",
+          name: "Login",
+          type: "Login",
+          txt: "登入",
           // icon: 'fa fa-tag context-menu__title-icon',
         },
       ],
