@@ -1,6 +1,7 @@
 <template>
   <div>
     <nav class="menu">
+   <i class="fas fa-user"></i>
       <a id="menubtn" class="toggle-nav" href="#" @click="toggle">&#9776;</a>
       <div class="menu-logo">
         <a>Sample Blog</a>
@@ -14,11 +15,16 @@
         >
           <router-link :to="{ name: item.type }">{{ item.txt }}</router-link>
         </li>
+        <li class="user_info" v-if="check_Authenticated">
+          <font-awesome-icon icon="user" style="padding-right:.4em;"/>{{currentUser.username}}
+        </li>
       </ul>
     </nav>
   </div>
 </template>
 <script>
+import { mapState ,mapGetters} from "vuex";
+
 export default {
   name: "Menu",
   data: function () {
@@ -39,7 +45,7 @@ export default {
           // icon: 'fa fa-tag context-menu__title-icon',
         },
       ],
-      current_li: "home",
+      current_li: "Home",
       showtoggle: true,
     };
   },
@@ -59,7 +65,9 @@ export default {
       };
     },
   },
-  computed: {},
+  computed: {
+    ...mapGetters(["currentUser","check_Authenticated"])
+  },
 };
 </script>
 <style>
@@ -76,6 +84,7 @@ export default {
   list-style: none;
   margin: 0px 50px 0px 0px;
   font-size: 16px;
+  padding:.5em;
 }
 
 .menu li a {
@@ -103,6 +112,13 @@ export default {
 
 .toggle-nav {
   display: none;
+}
+
+.user_info{
+  color:white;
+  background-color:#337275;
+  border-radius:4px;
+  padding:.5em;
 }
 
 @media screen and (max-width: 767px) {

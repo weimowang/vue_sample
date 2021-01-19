@@ -3,7 +3,8 @@ import { SET_AUTH } from "./mutation.type"
 import { DO_LOGIN } from "./action.type";
 
 const state = {
-     user: {}
+     user: {},
+     isAuthenticated:false
 }
 
 const getters = {

@@ -20,12 +20,10 @@
       </div>
       <button class="loginbtn">登入</button>
     </form>
-    <button @click="check()">check</button>
-    <div>{{ currentUser }}</div>
   </div>
 </template>
 <script >
-import { mapState } from "vuex";
+import { mapState ,mapGetters} from "vuex";
 import { DO_LOGIN } from "../../store/action.type";
 export default {
   data() {
@@ -47,7 +45,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["currentUser"]),
+    ...mapGetters(["check_Authenticated"])
   },
 };
 </script>

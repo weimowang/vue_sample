@@ -1,10 +1,5 @@
 <template>
   <div>
-    首頁
-    <!-- <div>{{ this.$store.getters.currentUser.username }}</div> -->
-    <div v-if="currentUser.username">{{ currentUser.username }}</div>
-
-    <button @click="check()">check</button>
     <PostList></PostList>
   </div>
 </template>
@@ -19,7 +14,7 @@ export default {
     PostList,
   },
   computed: {
-    ...mapGetters(["currentUser"])
+    ...mapGetters(["currentUser","check_Authenticated"])
   },
   methods: {
     check() {
