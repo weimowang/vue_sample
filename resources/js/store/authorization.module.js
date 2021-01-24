@@ -18,7 +18,7 @@ const getters = {
 
 const mutations = {
      [SET_AUTH](state, user) {
-          StoreService.setLocstorage('token', user.auth)
+          StoreService.setLocstorage('token', user.token)
           state.isAuthenticated = user.auth;
           state.user = user.userdata;
      }
@@ -31,7 +31,7 @@ const actions = {
                     userdata: {
                          username: 'Vincent',
                          age: '30'
-                    }, auth: true
+                    }, auth: true, token: '123456'
                };
                context.commit(SET_AUTH, data);
                resolve(data);
@@ -40,7 +40,7 @@ const actions = {
      [DO_LOGOUT](context, payload) {
           return new Promise(resolve => {
                let data = {
-                    userdata: {}, auth: false
+                    userdata: {}, auth: false, token: ''
                };
                context.commit(SET_AUTH, data);
                resolve(data);
@@ -56,7 +56,9 @@ const actions = {
                          userdata: {
                               username: 'Vincent',
                               age: '30'
-                         }, auth: true
+                         },
+                         auth: true,
+                         token
                     };
                     context.commit(SET_AUTH, data);
                     resolve(data);

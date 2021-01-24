@@ -12130,9 +12130,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
     },
     Logout: function Logout() {
+      var _this = this;
+
       this.$store.dispatch(_store_action_type__WEBPACK_IMPORTED_MODULE_1__["DO_LOGOUT"], {}).then(function (res) {
         // this.$router.push({ name: "Home" });
-        router.go(0);
+        _this.$router.go(0);
       });
     }
   },
@@ -48779,25 +48781,21 @@ var render = function() {
           _vm.check_Authenticated
             ? _c(
                 "li",
-                { staticClass: "user_info" },
+                {
+                  staticClass: "user_info",
+                  on: {
+                    click: function($event) {
+                      return _vm.Logout()
+                    }
+                  }
+                },
                 [
                   _c("font-awesome-icon", {
                     staticStyle: { "padding-right": "0.4em" },
                     attrs: { icon: "user" }
                   }),
                   _vm._v(_vm._s(_vm.currentUser.username) + "\n        "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "logout",
-                      on: {
-                        click: function($event) {
-                          return _vm.Logout()
-                        }
-                      }
-                    },
-                    [_vm._v("登出")]
-                  )
+                  _c("div", { staticClass: "logout" }, [_vm._v("登出")])
                 ],
                 1
               )
@@ -66224,7 +66222,7 @@ var getters = {
 };
 
 var mutations = _defineProperty({}, _mutation_type__WEBPACK_IMPORTED_MODULE_0__["SET_AUTH"], function (state, user) {
-  _utility_localstorage__WEBPACK_IMPORTED_MODULE_2__["default"].setLocstorage('token', user.auth);
+  _utility_localstorage__WEBPACK_IMPORTED_MODULE_2__["default"].setLocstorage('token', user.token);
   state.isAuthenticated = user.auth;
   state.user = user.userdata;
 });
@@ -66236,7 +66234,8 @@ var actions = (_actions = {}, _defineProperty(_actions, _action_type__WEBPACK_IM
         username: 'Vincent',
         age: '30'
       },
-      auth: true
+      auth: true,
+      token: '123456'
     };
     context.commit(_mutation_type__WEBPACK_IMPORTED_MODULE_0__["SET_AUTH"], data);
     resolve(data);
@@ -66245,7 +66244,8 @@ var actions = (_actions = {}, _defineProperty(_actions, _action_type__WEBPACK_IM
   return new Promise(function (resolve) {
     var data = {
       userdata: {},
-      auth: false
+      auth: false,
+      token: ''
     };
     context.commit(_mutation_type__WEBPACK_IMPORTED_MODULE_0__["SET_AUTH"], data);
     resolve(data);
@@ -66261,7 +66261,8 @@ var actions = (_actions = {}, _defineProperty(_actions, _action_type__WEBPACK_IM
           username: 'Vincent',
           age: '30'
         },
-        auth: true
+        auth: true,
+        token: token
       };
       context.commit(_mutation_type__WEBPACK_IMPORTED_MODULE_0__["SET_AUTH"], data);
       resolve(data);
