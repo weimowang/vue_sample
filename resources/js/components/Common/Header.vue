@@ -1,29 +1,32 @@
 <template>
   <div>
     <nav class="menu">
-   <i class="fas fa-user"></i>
+      <i class="fas fa-user"></i>
       <a id="menubtn" class="toggle-nav" href="#" @click="toggle">&#9776;</a>
       <div class="menu-logo">
         <a>Sample Blog</a>
       </div>
       <ul id="menuUl" :class="{ active: showtoggle }">
         <li
-          v-for="(item, key, index) in menuData"
+          v-for="(item, key, index) in menuList"
           :key="index"
           :class="highlightli(item.type)"
           @click="toggleLi(item.type)"
+          v-show="item.state"
         >
           <router-link :to="{ name: item.type }">{{ item.txt }}</router-link>
         </li>
         <li class="user_info" v-if="check_Authenticated">
-          <font-awesome-icon icon="user" style="padding-right:.4em;"/>{{currentUser.username}}
+          <font-awesome-icon icon="user" style="padding-right: 0.4em" />{{
+            currentUser.username
+          }}
         </li>
       </ul>
     </nav>
   </div>
 </template>
 <script>
-import { mapState ,mapGetters} from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "Menu",
@@ -35,14 +38,24 @@ export default {
           name: "Home",
           type: "Home",
           txt: "首頁",
+          state: true,
+          // icon: 'fa fa-tag context-menu__title-icon',
+        },
+        {
+          id: 1,
+          name: "Login",
+          type: "Login",
+          txt: "登入",
+          state: false,
+
           // icon: 'fa fa-tag context-menu__title-icon',
         },
         {
           id: 2,
-          name: "Login",
-          type: "Login",
-          txt: "登入",
-          // icon: 'fa fa-tag context-menu__title-icon',
+          name: "Logout",
+          type: "Logout",
+          txt: "登出",
+          state: false,
         },
       ],
       current_li: "Home",
@@ -66,7 +79,17 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["currentUser","check_Authenticated"])
+    ...mapGetters(["currentUser", "check_Authenticated"]),
+    menuList() {
+      if (this.check_Authenticated) {
+        this.menuData[1].state = false;
+        this.menuData[2].state = true;
+      } else {
+        this.menuData[1].state = true;
+        this.menuData[2].state = false;
+      }
+      return this.menuData;
+    },
   },
 };
 </script>
@@ -84,7 +107,7 @@ export default {
   list-style: none;
   margin: 0px 50px 0px 0px;
   font-size: 16px;
-  padding:.5em;
+  padding: 0.5em;
 }
 
 .menu li a {
@@ -114,11 +137,11 @@ export default {
   display: none;
 }
 
-.user_info{
-  color:white;
-  background-color:#337275;
-  border-radius:4px;
-  padding:.5em;
+.user_info {
+  color: white;
+  background-color: #337275;
+  border-radius: 4px;
+  padding: 0.5em;
 }
 
 @media screen and (max-width: 767px) {

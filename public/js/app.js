@@ -12084,6 +12084,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Menu",
@@ -12093,14 +12096,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         id: 0,
         name: "Home",
         type: "Home",
-        txt: "首頁" // icon: 'fa fa-tag context-menu__title-icon',
+        txt: "首頁",
+        state: true // icon: 'fa fa-tag context-menu__title-icon',
+
+      }, {
+        id: 1,
+        name: "Login",
+        type: "Login",
+        txt: "登入",
+        state: false // icon: 'fa fa-tag context-menu__title-icon',
 
       }, {
         id: 2,
-        name: "Login",
-        type: "Login",
-        txt: "登入" // icon: 'fa fa-tag context-menu__title-icon',
-
+        name: "Logout",
+        type: "Logout",
+        txt: "登出",
+        state: false
       }],
       current_li: "Home",
       showtoggle: true
@@ -12122,7 +12133,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
     }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser", "check_Authenticated"]))
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser", "check_Authenticated"])), {}, {
+    menuList: function menuList() {
+      if (this.check_Authenticated) {
+        this.menuData[1].state = false;
+        this.menuData[2].state = true;
+      } else {
+        this.menuData[1].state = true;
+        this.menuData[2].state = false;
+      }
+
+      return this.menuData;
+    }
+  })
 });
 
 /***/ }),
@@ -16719,7 +16742,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../css/main.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/css/main.css"), "");
 
 // module
-exports.push([module.i, "\r\n", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -16738,7 +16761,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.menu {\r\n  width: 100%;\r\n  display: flex;\r\n  background: #272626;\r\n  /* border-radius: 4px 4px 4px 4px; */\r\n  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\n}\n.menu li {\r\n  float: left;\r\n  list-style: none;\r\n  margin: 0px 50px 0px 0px;\r\n  font-size: 16px;\r\n  padding:.5em;\n}\n.menu li a {\r\n  text-decoration: none;\r\n  color: rgb(146, 151, 150);\r\n  transition: color linear 0.15s;\r\n  cursor: pointer;\n}\n.menu .menu-logo {\r\n  margin: auto;\r\n  margin-left: 0px;\r\n  padding: 10px 10px 10px 20px;\n}\n.menu .menu-logo a {\r\n  color: #fff;\n}\n.menu a:hover,\r\n.menu .current-active a {\r\n  text-decoration: none;\r\n  color: #337275;\n}\n.toggle-nav {\r\n  display: none;\n}\n.user_info{\r\n  color:white;\r\n  background-color:#337275;\r\n  border-radius:4px;\r\n  padding:.5em;\n}\n@media screen and (max-width: 767px) {\n.menu {\r\n    position: relative;\r\n    display: inline-block;\n}\n.toggle-nav {\r\n    position: absolute;\r\n    left: 4%;\r\n    color: #ffffff;\r\n    text-decoration: none;\r\n    line-height: 40px;\n}\n.menu .menu-logo {\r\n    position: relative;\r\n    left: 40%;\n}\n.menu ul.active {\r\n    display: none;\n}\n.menu ul {\r\n    left: 0px;\r\n    padding: 10px 25px;\r\n    margin-top: -5px;\r\n    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\r\n    border-radius: 0px 0px 3px 3px;\r\n    background: #272626;\n}\n.menu li {\r\n    margin: 10px 0px 10px 0px;\r\n    float: none;\r\n    display: block;\n}\n.menu a {\r\n    display: block;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.menu {\n  width: 100%;\n  display: flex;\n  background: #272626;\n  /* border-radius: 4px 4px 4px 4px; */\n  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\n}\n.menu li {\n  float: left;\n  list-style: none;\n  margin: 0px 50px 0px 0px;\n  font-size: 16px;\n  padding: 0.5em;\n}\n.menu li a {\n  text-decoration: none;\n  color: rgb(146, 151, 150);\n  transition: color linear 0.15s;\n  cursor: pointer;\n}\n.menu .menu-logo {\n  margin: auto;\n  margin-left: 0px;\n  padding: 10px 10px 10px 20px;\n}\n.menu .menu-logo a {\n  color: #fff;\n}\n.menu a:hover,\n.menu .current-active a {\n  text-decoration: none;\n  color: #337275;\n}\n.toggle-nav {\n  display: none;\n}\n.user_info {\n  color: white;\n  background-color: #337275;\n  border-radius: 4px;\n  padding: 0.5em;\n}\n@media screen and (max-width: 767px) {\n.menu {\n    position: relative;\n    display: inline-block;\n}\n.toggle-nav {\n    position: absolute;\n    left: 4%;\n    color: #ffffff;\n    text-decoration: none;\n    line-height: 40px;\n}\n.menu .menu-logo {\n    position: relative;\n    left: 40%;\n}\n.menu ul.active {\n    display: none;\n}\n.menu ul {\n    left: 0px;\n    padding: 10px 25px;\n    margin-top: -5px;\n    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\n    border-radius: 0px 0px 3px 3px;\n    background: #272626;\n}\n.menu li {\n    margin: 10px 0px 10px 0px;\n    float: none;\n    display: block;\n}\n.menu a {\n    display: block;\n}\n}\n", ""]);
 
 // exports
 
@@ -16757,7 +16780,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.error-container[data-v-23fcc510] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: center;\r\n  align-items: center;\n}\n.title[data-v-23fcc510] {\r\n  font-size: 10em;\n}\r\n", ""]);
+exports.push([module.i, "\n.error-container[data-v-23fcc510] {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  align-items: center;\n}\n.title[data-v-23fcc510] {\n  font-size: 10em;\n}\n", ""]);
 
 // exports
 
@@ -16776,7 +16799,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".weilist {}\r\n\r\n/* login */\n.login-title {\r\n    text-align: center;\n}\n.loginform {\r\n    width: 60%;\r\n    margin: 0 auto;\r\n    display: flex;\r\n    flex-direction: column;\n}\n.loginbtn {\r\n    margin: 1em 0;\n}", ""]);
+exports.push([module.i, ".weilist {}\n\n/* login */\n.login-title {\n    text-align: center;\n}\n.loginform {\n    width: 60%;\n    margin: 0 auto;\n    display: flex;\n    flex-direction: column;\n}\n.loginbtn {\n    margin: 1em 0;\n}", ""]);
 
 // exports
 
@@ -48709,10 +48732,18 @@ var render = function() {
         "ul",
         { class: { active: _vm.showtoggle }, attrs: { id: "menuUl" } },
         [
-          _vm._l(_vm.menuData, function(item, key, index) {
+          _vm._l(_vm.menuList, function(item, key, index) {
             return _c(
               "li",
               {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: item.state,
+                    expression: "item.state"
+                  }
+                ],
                 key: index,
                 class: _vm.highlightli(item.type),
                 on: {
@@ -48736,7 +48767,7 @@ var render = function() {
                 { staticClass: "user_info" },
                 [
                   _c("font-awesome-icon", {
-                    staticStyle: { "padding-right": ".4em" },
+                    staticStyle: { "padding-right": "0.4em" },
                     attrs: { icon: "user" }
                   }),
                   _vm._v(_vm._s(_vm.currentUser.username) + "\n      ")
@@ -66233,8 +66264,8 @@ var SET_AUTH = "setauth";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\vincent.wang\webtest\vue_sample\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\vincent.wang\webtest\vue_sample\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/WEIMOWANG/Desktop/vue_sample/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/WEIMOWANG/Desktop/vue_sample/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
