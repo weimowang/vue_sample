@@ -81,13 +81,8 @@ export default {
   computed: {
     ...mapGetters(["currentUser", "check_Authenticated"]),
     menuList() {
-      if (this.check_Authenticated) {
-        this.menuData[1].state = false;
-        this.menuData[2].state = true;
-      } else {
-        this.menuData[1].state = true;
-        this.menuData[2].state = false;
-      }
+      this.menuData[1].state = !this.check_Authenticated;
+      this.menuData[2].state = this.check_Authenticated;
       return this.menuData;
     },
   },

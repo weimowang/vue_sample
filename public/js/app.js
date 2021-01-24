@@ -12135,14 +12135,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser", "check_Authenticated"])), {}, {
     menuList: function menuList() {
-      if (this.check_Authenticated) {
-        this.menuData[1].state = false;
-        this.menuData[2].state = true;
-      } else {
-        this.menuData[1].state = true;
-        this.menuData[2].state = false;
-      }
-
+      this.menuData[1].state = !this.check_Authenticated;
+      this.menuData[2].state = this.check_Authenticated;
       return this.menuData;
     }
   })
