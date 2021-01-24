@@ -20,6 +20,7 @@
           <font-awesome-icon icon="user" style="padding-right: 0.4em" />{{
             currentUser.username
           }}
+          <div class="logout" @click="Logout()">登出</div>
         </li>
       </ul>
     </nav>
@@ -27,6 +28,7 @@
 </template>
 <script>
 import { mapState, mapGetters } from "vuex";
+import { DO_LOGOUT } from "../../store/action.type";
 
 export default {
   name: "Menu",
@@ -50,13 +52,6 @@ export default {
 
           // icon: 'fa fa-tag context-menu__title-icon',
         },
-        {
-          id: 2,
-          name: "Logout",
-          type: "Logout",
-          txt: "登出",
-          state: false,
-        },
       ],
       current_li: "Home",
       showtoggle: true,
@@ -77,102 +72,22 @@ export default {
         "current-active": this.current_li === name,
       };
     },
+    Logout: function () {
+      this.$store.dispatch(DO_LOGOUT, {}).then((res) => {
+        // this.$router.push({ name: "Home" });
+        router.go(0);
+      });
+    },
   },
   computed: {
     ...mapGetters(["currentUser", "check_Authenticated"]),
     menuList() {
       this.menuData[1].state = !this.check_Authenticated;
-      this.menuData[2].state = this.check_Authenticated;
       return this.menuData;
     },
   },
 };
 </script>
-<style>
-.menu {
-  width: 100%;
-  display: flex;
-  background: #272626;
-  /* border-radius: 4px 4px 4px 4px; */
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
-}
-
-.menu li {
-  float: left;
-  list-style: none;
-  margin: 0px 50px 0px 0px;
-  font-size: 16px;
-  padding: 0.5em;
-}
-
-.menu li a {
-  text-decoration: none;
-  color: rgb(146, 151, 150);
-  transition: color linear 0.15s;
-  cursor: pointer;
-}
-
-.menu .menu-logo {
-  margin: auto;
-  margin-left: 0px;
-  padding: 10px 10px 10px 20px;
-}
-
-.menu .menu-logo a {
-  color: #fff;
-}
-
-.menu a:hover,
-.menu .current-active a {
-  text-decoration: none;
-  color: #337275;
-}
-
-.toggle-nav {
-  display: none;
-}
-
-.user_info {
-  color: white;
-  background-color: #337275;
-  border-radius: 4px;
-  padding: 0.5em;
-}
-
-@media screen and (max-width: 767px) {
-  .menu {
-    position: relative;
-    display: inline-block;
-  }
-  .toggle-nav {
-    position: absolute;
-    left: 4%;
-    color: #ffffff;
-    text-decoration: none;
-    line-height: 40px;
-  }
-  .menu .menu-logo {
-    position: relative;
-    left: 40%;
-  }
-  .menu ul.active {
-    display: none;
-  }
-  .menu ul {
-    left: 0px;
-    padding: 10px 25px;
-    margin-top: -5px;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
-    border-radius: 0px 0px 3px 3px;
-    background: #272626;
-  }
-  .menu li {
-    margin: 10px 0px 10px 0px;
-    float: none;
-    display: block;
-  }
-  .menu a {
-    display: block;
-  }
-}
+<style scoped>
+@import "../../../css/menu.css";
 </style>

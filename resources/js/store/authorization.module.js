@@ -1,10 +1,10 @@
-
 import { SET_AUTH } from "./mutation.type"
-import { DO_LOGIN } from "./action.type";
+import { DO_LOGIN, DO_LOGOUT, CHECK_AUTH } from "./action.type";
+import StoreService from "../utility/localstorage"
 
 const state = {
      user: {},
-     isAuthenticated:false
+     isAuthenticated: false
 }
 
 const getters = {
@@ -18,21 +18,54 @@ const getters = {
 
 const mutations = {
      [SET_AUTH](state, user) {
-          state.isAuthenticated = true;
-          state.user = user;
+          StoreService.setLocstorage('token', user.auth)
+          state.isAuthenticated = user.auth;
+          state.user = user.userdata;
      }
 }
 
 const actions = {
-     [DO_LOGIN](context,payload) {
+     [DO_LOGIN](context, payload) {
           return new Promise(resolve => {
                let data = {
-                    username: 'Vincent',
-                    age: '30'
+                    userdata: {
+                         username: 'Vincent',
+                         age: '30'
+                    }, auth: true
                };
                context.commit(SET_AUTH, data);
                resolve(data);
           })
+     },
+     [DO_LOGOUT](context, payload) {
+          return new Promise(resolve => {
+               let data = {
+                    userdata: {}, auth: false
+               };
+               context.commit(SET_AUTH, data);
+               resolve(data);
+          })
+     },
+     [CHECK_AUTH](context, payload) {
+          // use localstorage token get user data
+          const token = StoreService.getLocstorage('token');
+          //call api by token
+          if (token) {
+               return new Promise(resolve => {
+                    let data = {
+                         userdata: {
+                              username: 'Vincent',
+                              age: '30'
+                         }, auth: true
+                    };
+                    context.commit(SET_AUTH, data);
+                    resolve(data);
+               })
+          } else {
+               return new Promise(resolve => {
+                    resolve();
+               })
+          }
      }
 }
 
