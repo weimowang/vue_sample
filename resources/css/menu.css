@@ -51,17 +51,13 @@
     transition: 0.6s all;
 }
 
-.user_info svg {
+.user_info svg, .user_info span {
     margin: auto;
 }
 
 .user_info:hover {
     background-color: #2d575a;
     cursor: pointer;
-}
-
-.logout {
-    margin: 0 6px;
 }
 
 @media screen and (max-width: 767px) {
@@ -99,4 +95,51 @@
     .menu a {
         display: block;
     }
+}
+
+/* login  */
+
+.logout {
+    margin: 0 6px;
+}
+
+.login_input {
+    border-radius: 1em;
+    border: 1px solid #acacac;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.login_input input {
+    border: none;
+    outline: none;
+    width: 80%;
+}
+
+.login_input input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+}
+
+.login_btnarea {
+    display: flex;
+    margin: 1em auto;
+    width: 100%;
+}
+
+.loginbtn {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 4px;
+    border: none;
+    background-color: #4e4e4e;
+    transition: 0.6s all;
+    padding: .8em;
+    color: white;
+}
+
+.loginbtn:hover {
+    cursor: pointer;
+    background-color: #272626;
 }

@@ -17,9 +17,10 @@
           <router-link :to="{ name: item.type }">{{ item.txt }}</router-link>
         </li>
         <li class="user_info" v-if="check_Authenticated" @click="Logout()">
-          <font-awesome-icon icon="user" style="padding-right: 0.4em" />{{
+          <font-awesome-icon icon="user" style="padding-right: 0.4em" />
+          <span>{{
             currentUser.username
-          }}
+          }}</span>
           <div class="logout">登出</div>
         </li>
       </ul>
@@ -74,7 +75,6 @@ export default {
     },
     Logout: function () {
       this.$store.dispatch(DO_LOGOUT, {}).then((res) => {
-        // this.$router.push({ name: "Home" });
         this.$router.go(0);
       });
     },
