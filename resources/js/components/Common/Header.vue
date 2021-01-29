@@ -10,17 +10,14 @@
         <li
           v-for="(item, key, index) in menuList"
           :key="index"
-          :class="highlightli(item.type)"
-          @click="toggleLi(item.type)"
+          :class="[{ current_active: item.name == $route.name }]"
           v-show="item.state"
         >
           <router-link :to="{ name: item.type }">{{ item.txt }}</router-link>
         </li>
         <li class="user_info" v-if="check_Authenticated" @click="Logout()">
           <font-awesome-icon icon="user" style="padding-right: 0.4em" />
-          <span>{{
-            currentUser.username
-          }}</span>
+          <span>{{ currentUser.username }}</span>
           <div class="logout">登出</div>
         </li>
       </ul>
@@ -50,11 +47,9 @@ export default {
           type: "Login",
           txt: "登入",
           state: false,
-
           // icon: 'fa fa-tag context-menu__title-icon',
         },
       ],
-      current_li: "Home",
       showtoggle: true,
     };
   },
@@ -62,16 +57,6 @@ export default {
     //click yhe hambuger menu
     toggle: function () {
       this.showtoggle = !this.showtoggle;
-    },
-    //click the li
-    toggleLi: function (name) {
-      this.current_li = name;
-    },
-    //li hightlight
-    highlightli: function (name) {
-      return {
-        "current-active": this.current_li === name,
-      };
     },
     Logout: function () {
       this.$store.dispatch(DO_LOGOUT, {}).then((res) => {

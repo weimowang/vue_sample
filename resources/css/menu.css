@@ -33,7 +33,7 @@
     color: #fff;
 }
 
-.menu a:hover, .menu .current-active a {
+.menu a:hover, .menu .current_active a {
     text-decoration: none;
     color: #337275;
 }

@@ -12087,9 +12087,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12111,7 +12108,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         state: false // icon: 'fa fa-tag context-menu__title-icon',
 
       }],
-      current_li: "Home",
       showtoggle: true
     };
   },
@@ -12119,16 +12115,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     //click yhe hambuger menu
     toggle: function toggle() {
       this.showtoggle = !this.showtoggle;
-    },
-    //click the li
-    toggleLi: function toggleLi(name) {
-      this.current_li = name;
-    },
-    //li hightlight
-    highlightli: function highlightli(name) {
-      return {
-        "current-active": this.current_li === name
-      };
     },
     Logout: function Logout() {
       var _this = this;
@@ -16734,7 +16720,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../css/main.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/css/main.css"), "");
 
 // module
-exports.push([module.i, "\r\n", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -16753,7 +16739,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 exports.i(__webpack_require__(/*! -!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../css/menu.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/css/menu.css"), "");
 
 // module
-exports.push([module.i, "\r\n", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -16772,7 +16758,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.error-container[data-v-23fcc510] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: center;\r\n  align-items: center;\n}\n.title[data-v-23fcc510] {\r\n  font-size: 10em;\n}\r\n", ""]);
+exports.push([module.i, "\n.error-container[data-v-23fcc510] {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  align-items: center;\n}\n.title[data-v-23fcc510] {\n  font-size: 10em;\n}\n", ""]);
 
 // exports
 
@@ -16791,7 +16777,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "/* login */\n.login-title {\r\n    text-align: center;\n}\n.loginform {\r\n    width: 60%;\r\n    margin: 0 auto;\r\n    display: flex;\r\n    flex-direction: column;\n}\n.loginbtn {\r\n    margin: 1em 0;\n}\r\n", ""]);
+exports.push([module.i, "/* login */\n.login-title {\n    text-align: center;\n}\n.loginform {\n    width: 60%;\n    margin: 0 auto;\n    display: flex;\n    flex-direction: column;\n}\n.loginbtn {\n    margin: 1em 0;\n}\n", ""]);
 
 // exports
 
@@ -16810,7 +16796,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "/* menu */\n.menu {\r\n    width: 100%;\r\n    display: flex;\r\n    background: #272626;\r\n    /* border-radius: 4px 4px 4px 4px; */\r\n    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\n}\n.menu li {\r\n    float: left;\r\n    list-style: none;\r\n    margin: 0px 50px 0px 0px;\r\n    font-size: 16px;\r\n    padding: 0.5em;\n}\n.menu li a {\r\n    text-decoration: none;\r\n    color: rgb(146, 151, 150);\r\n    transition: color linear 0.15s;\r\n    cursor: pointer;\n}\n.menu .menu-logo {\r\n    margin: auto;\r\n    margin-left: 0px;\r\n    padding: 10px 10px 10px 20px;\n}\n.menu .menu-logo a {\r\n    color: #fff;\n}\n.menu a:hover, .menu .current-active a {\r\n    text-decoration: none;\r\n    color: #337275;\n}\n.toggle-nav {\r\n    display: none;\n}\n.user_info {\r\n    color: white;\r\n    background-color: #337275;\r\n    border-radius: 4px;\r\n    padding: 0.5em;\r\n    display: flex;\r\n    transition: 0.6s all;\n}\n.user_info svg, .user_info span {\r\n    margin: auto;\n}\n.user_info:hover {\r\n    background-color: #2d575a;\r\n    cursor: pointer;\n}\n@media screen and (max-width: 767px) {\n.menu {\r\n        position: relative;\r\n        display: inline-block;\n}\n.toggle-nav {\r\n        position: absolute;\r\n        left: 4%;\r\n        color: #ffffff;\r\n        text-decoration: none;\r\n        line-height: 40px;\n}\n.menu .menu-logo {\r\n        position: relative;\r\n        left: 40%;\n}\n.menu ul.active {\r\n        display: none;\n}\n.menu ul {\r\n        left: 0px;\r\n        padding: 10px 25px;\r\n        margin-top: -5px;\r\n        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\r\n        border-radius: 0px 0px 3px 3px;\r\n        background: #272626;\n}\n.menu li {\r\n        margin: 10px 0px 10px 0px;\r\n        float: none;\r\n        display: block;\n}\n.menu a {\r\n        display: block;\n}\n}\r\n\r\n/* login  */\n.logout {\r\n    margin: 0 6px;\n}\n.login_input {\r\n    border-radius: 1em;\r\n    border: 1px solid #acacac;\r\n    background-color: rgba(255, 255, 255, 0.9);\r\n    padding: 10px;\r\n    margin: 5px 0;\n}\n.login_input input {\r\n    border: none;\r\n    outline: none;\r\n    width: 80%;\n}\n.login_input input::placeholder {\r\n    color: rgba(255, 255, 255, 0.5);\r\n    opacity: 0.5;\n}\n.login_btnarea {\r\n    display: flex;\r\n    margin: 1em auto;\r\n    width: 100%;\n}\n.loginbtn {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    border-radius: 4px;\r\n    border: none;\r\n    background-color: #4e4e4e;\r\n    transition: 0.6s all;\r\n    padding: .8em;\r\n    color: white;\n}\n.loginbtn:hover {\r\n    cursor: pointer;\r\n    background-color: #272626;\n}", ""]);
+exports.push([module.i, "/* menu */\n.menu {\n    width: 100%;\n    display: flex;\n    background: #272626;\n    /* border-radius: 4px 4px 4px 4px; */\n    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\n}\n.menu li {\n    float: left;\n    list-style: none;\n    margin: 0px 50px 0px 0px;\n    font-size: 16px;\n    padding: 0.5em;\n}\n.menu li a {\n    text-decoration: none;\n    color: rgb(146, 151, 150);\n    transition: color linear 0.15s;\n    cursor: pointer;\n}\n.menu .menu-logo {\n    margin: auto;\n    margin-left: 0px;\n    padding: 10px 10px 10px 20px;\n}\n.menu .menu-logo a {\n    color: #fff;\n}\n.menu a:hover, .menu .current_active a {\n    text-decoration: none;\n    color: #337275;\n}\n.toggle-nav {\n    display: none;\n}\n.user_info {\n    color: white;\n    background-color: #337275;\n    border-radius: 4px;\n    padding: 0.5em;\n    display: flex;\n    transition: 0.6s all;\n}\n.user_info svg, .user_info span {\n    margin: auto;\n}\n.user_info:hover {\n    background-color: #2d575a;\n    cursor: pointer;\n}\n@media screen and (max-width: 767px) {\n.menu {\n        position: relative;\n        display: inline-block;\n}\n.toggle-nav {\n        position: absolute;\n        left: 4%;\n        color: #ffffff;\n        text-decoration: none;\n        line-height: 40px;\n}\n.menu .menu-logo {\n        position: relative;\n        left: 40%;\n}\n.menu ul.active {\n        display: none;\n}\n.menu ul {\n        left: 0px;\n        padding: 10px 25px;\n        margin-top: -5px;\n        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);\n        border-radius: 0px 0px 3px 3px;\n        background: #272626;\n}\n.menu li {\n        margin: 10px 0px 10px 0px;\n        float: none;\n        display: block;\n}\n.menu a {\n        display: block;\n}\n}\n\n/* login  */\n.logout {\n    margin: 0 6px;\n}\n.login_input {\n    border-radius: 1em;\n    border: 1px solid #acacac;\n    background-color: rgba(255, 255, 255, 0.9);\n    padding: 10px;\n    margin: 5px 0;\n}\n.login_input input {\n    border: none;\n    outline: none;\n    width: 80%;\n}\n.login_input input::placeholder {\n    color: rgba(255, 255, 255, 0.5);\n    opacity: 0.5;\n}\n.login_btnarea {\n    display: flex;\n    margin: 1em auto;\n    width: 100%;\n}\n.loginbtn {\n    width: 100%;\n    margin: 0 auto;\n    border-radius: 4px;\n    border: none;\n    background-color: #4e4e4e;\n    transition: 0.6s all;\n    padding: .8em;\n    color: white;\n}\n.loginbtn:hover {\n    cursor: pointer;\n    background-color: #272626;\n}", ""]);
 
 // exports
 
@@ -48756,12 +48742,7 @@ var render = function() {
                   }
                 ],
                 key: index,
-                class: _vm.highlightli(item.type),
-                on: {
-                  click: function($event) {
-                    return _vm.toggleLi(item.type)
-                  }
-                }
+                class: [{ current_active: item.name == _vm.$route.name }]
               },
               [
                 _c("router-link", { attrs: { to: { name: item.type } } }, [
@@ -66418,8 +66399,8 @@ var delLocstorage = function delLocstorage(tableid) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\vincent.wang\webtest\vue_sample\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\vincent.wang\webtest\vue_sample\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/WEIMOWANG/Desktop/vue_sample/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/WEIMOWANG/Desktop/vue_sample/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
