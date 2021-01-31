@@ -12,6 +12,7 @@ Vue.config.productionTip = false
 import App from "./components/App.vue";
 import router from './router'
 import store from './store'
+
 import { CHECK_AUTH } from "./store/action.type";
 
 // hecked auth before each page load and refresh

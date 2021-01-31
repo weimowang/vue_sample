@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 import Home from '../components/Home/Home.vue'
 import Login from '../components/Login/Login.vue'
-
+import Profile from '../components/Profile/Profile.vue'
 //404 errorpath
 import Errorpath from '../components/Errorpath/Errorpath.vue'
 
@@ -23,6 +23,11 @@ export default new VueRouter({
             path: '/login',
             name: 'Login',
             component: Login
+        },
+        {
+            path: '/profile',
+            name: 'Profile',
+            component: Profile
         },
         {
             path: '*',

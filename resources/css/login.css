@@ -1,0 +1,16 @@
+/* login */
+
+.login-title {
+    text-align: center;
+}
+
+.loginform {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginbtn {
+    margin: 1em 0;
+}

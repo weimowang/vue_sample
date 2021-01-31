@@ -1,16 +1,18 @@
-/* login */
+/* home */
 
-.login-title {
-    text-align: center;
+.container {
+    min-height: 90vh;
+    margin-bottom: 15vh;
 }
 
-.loginform {
-    width: 60%;
-    margin: 0 auto;
+.home_wrap {
     display: flex;
-    flex-direction: column;
 }
 
-.loginbtn {
-    margin: 1em 0;
+.left_wrap {
+    width: 75%;
+}
+
+.right_wrap {
+    width: 25%;
 }

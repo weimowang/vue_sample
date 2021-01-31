@@ -43,3 +43,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import "../../../css/login.css";
+</style>

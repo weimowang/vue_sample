@@ -4,7 +4,9 @@
       <i class="fas fa-user"></i>
       <a id="menubtn" class="toggle-nav" href="#" @click="toggle">&#9776;</a>
       <div class="menu-logo">
-        <a>Sample Blog</a>
+        <router-link :to="{ name: 'Home' }" style="text-decoration: none"
+          >Sample Blog</router-link
+        >
       </div>
       <ul id="menuUl" :class="{ active: showtoggle }">
         <li
@@ -29,7 +31,7 @@ import { mapState, mapGetters } from "vuex";
 import { DO_LOGOUT } from "../../store/action.type";
 
 export default {
-  name: "Menu",
+  name: "Header",
   data: function () {
     return {
       menuData: [
@@ -43,6 +45,14 @@ export default {
         },
         {
           id: 1,
+          name: "Profile",
+          type: "Profile",
+          txt: "帳戶管理",
+          state: true,
+          // icon: 'fa fa-tag context-menu__title-icon',
+        },
+        {
+          id: 2,
           name: "Login",
           type: "Login",
           txt: "登入",
@@ -67,7 +77,7 @@ export default {
   computed: {
     ...mapGetters(["currentUser", "check_Authenticated"]),
     menuList() {
-      this.menuData[1].state = !this.check_Authenticated;
+      this.menuData[2].state = !this.check_Authenticated;
       return this.menuData;
     },
   },
