@@ -10,9 +10,18 @@
 }
 
 .left_wrap {
-    width: 75%;
+    width: 70%;
 }
 
 .right_wrap {
-    width: 25%;
+    width: 30%;
+}
+
+@media screen and (max-width: 767px) {
+    .left_wrap {
+        width: 100%!important;
+    }
+    .right_wrap {
+        display: none!important;
+    }
 }

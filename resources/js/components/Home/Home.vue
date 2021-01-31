@@ -1,7 +1,7 @@
 <template>
   <div class="home_wrap">
-    <PostList :posts_data.sync="posts_data" class="left_wrap"></PostList>
-    <Sidetoolbar class="right_wrap"></Sidetoolbar>
+    <PostList :posts_data.sync="posts_data" :class="['left_wrap']"></PostList>
+    <Sidetoolbar :class="['right_wrap']"></Sidetoolbar>
   </div>
 </template>
 
