@@ -4,5 +4,6 @@ export const DO_LOGOUT = "do_logout";
 export const DO_REFRESHTOKEN = "do_refreshtoken";
 export const UPDATE_PROFILE = 'update_profile';
 export const GET_POSTS = "get_posts";
-
-
+export const CREATE_POSTS = 'create_posts';
+export const UPDATE_POSTS = 'update_posts';
+export const DELETE_POSTS = 'delete_posts';

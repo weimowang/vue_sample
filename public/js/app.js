@@ -84767,13 +84767,15 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
-/* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
-/* harmony import */ var _store_action_type__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./store/action.type */ "./resources/js/store/action.type.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
+/* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
+/* harmony import */ var _store_action_type__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store/action.type */ "./resources/js/store/action.type.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -84781,22 +84783,23 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faUserSecret"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faUser"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"]);
+
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserSecret"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 
 
 
  // hecked auth before each page load and refresh
 
-_router__WEBPACK_IMPORTED_MODULE_5__["default"].beforeEach(function (to, from, next) {
-  _store__WEBPACK_IMPORTED_MODULE_6__["default"].dispatch(_store_action_type__WEBPACK_IMPORTED_MODULE_7__["CHECK_AUTH"]).then(next);
+_router__WEBPACK_IMPORTED_MODULE_6__["default"].beforeEach(function (to, from, next) {
+  _store__WEBPACK_IMPORTED_MODULE_7__["default"].dispatch(_store_action_type__WEBPACK_IMPORTED_MODULE_8__["CHECK_AUTH"]).then(next);
 });
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  router: _router__WEBPACK_IMPORTED_MODULE_5__["default"],
-  store: _store__WEBPACK_IMPORTED_MODULE_6__["default"],
+  router: _router__WEBPACK_IMPORTED_MODULE_6__["default"],
+  store: _store__WEBPACK_IMPORTED_MODULE_7__["default"],
   render: function render(h) {
-    return h(_components_App_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
+    return h(_components_App_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
   }
 }).$mount('#app');
 
@@ -85717,7 +85720,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*!*******************************************!*\
   !*** ./resources/js/store/action.type.js ***!
   \*******************************************/
-/*! exports provided: CHECK_AUTH, DO_LOGIN, DO_LOGOUT, DO_REFRESHTOKEN, UPDATE_PROFILE, GET_POSTS */
+/*! exports provided: CHECK_AUTH, DO_LOGIN, DO_LOGOUT, DO_REFRESHTOKEN, UPDATE_PROFILE, GET_POSTS, CREATE_POSTS, UPDATE_POSTS, DELETE_POSTS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85728,12 +85731,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DO_REFRESHTOKEN", function() { return DO_REFRESHTOKEN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_PROFILE", function() { return UPDATE_PROFILE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_POSTS", function() { return GET_POSTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_POSTS", function() { return CREATE_POSTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_POSTS", function() { return UPDATE_POSTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_POSTS", function() { return DELETE_POSTS; });
 var CHECK_AUTH = "check_auth";
 var DO_LOGIN = "do_login";
 var DO_LOGOUT = "do_logout";
 var DO_REFRESHTOKEN = "do_refreshtoken";
 var UPDATE_PROFILE = 'update_profile';
 var GET_POSTS = "get_posts";
+var CREATE_POSTS = 'create_posts';
+var UPDATE_POSTS = 'update_posts';
+var DELETE_POSTS = 'delete_posts';
 
 /***/ }),
 
@@ -85914,6 +85923,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mutation_type__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mutation.type */ "./resources/js/store/mutation.type.js");
 /* harmony import */ var _action_type__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./action.type */ "./resources/js/store/action.type.js");
 /* harmony import */ var _utility_localstorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utility/localstorage */ "./resources/js/utility/localstorage.js");
+var _actions;
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -85932,7 +85943,7 @@ var mutations = _defineProperty({}, _mutation_type__WEBPACK_IMPORTED_MODULE_0__[
   state.posts = postdata.data;
 });
 
-var actions = _defineProperty({}, _action_type__WEBPACK_IMPORTED_MODULE_1__["GET_POSTS"], function (context, payload) {
+var actions = (_actions = {}, _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["GET_POSTS"], function (context, payload) {
   var token = _utility_localstorage__WEBPACK_IMPORTED_MODULE_2__["default"].getLocstorage('token');
   return new Promise(function (resolve) {
     var res = {
@@ -85961,8 +85972,7 @@ var actions = _defineProperty({}, _action_type__WEBPACK_IMPORTED_MODULE_1__["GET
     context.commit(_mutation_type__WEBPACK_IMPORTED_MODULE_0__["SET_POSTS"], res);
     resolve(res);
   });
-});
-
+}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["CREATE_POSTS"], function (context, payload) {}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["UPDATE_POSTS"], function (context, payload) {}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["DELETE_POSTS"], function (context, payload) {}), _actions);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: state,
   actions: actions,
@@ -85998,7 +86008,7 @@ var setLocstorage = function setLocstorage(tableid, data) {
  */
 
 var getLocstorage = function getLocstorage(tableid) {
-  return window.localStorage.getItem(tableid);
+  return window.localStorage.getItem(tableid) || null;
 };
 /**
  * delete the data in localstorage by key 

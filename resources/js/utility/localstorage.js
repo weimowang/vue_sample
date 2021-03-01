@@ -12,7 +12,7 @@ export const setLocstorage = (tableid, data) => {
  * @param {String} tableid  the key 
  */
 export const getLocstorage = (tableid) => {
-    return window.localStorage.getItem(tableid)
+    return window.localStorage.getItem(tableid) || null;
 }
 
 /**

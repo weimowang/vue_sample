@@ -1,5 +1,5 @@
 import { SET_POSTS, DESTORY_AUTH } from "./mutation.type"
-import { GET_POSTS } from "./action.type";
+import { GET_POSTS,CREATE_POSTS,UPDATE_POSTS,DELETE_POSTS } from "./action.type";
 import StoreService from "../utility/localstorage"
 
 
@@ -50,7 +50,13 @@ const actions = {
             context.commit(SET_POSTS, res);
             resolve(res);
         })
-    }
+    },
+    [CREATE_POSTS](context, payload) {
+    },
+    [UPDATE_POSTS](context, payload) {
+    },
+    [DELETE_POSTS](context, payload) {
+    },
 }
 
 
