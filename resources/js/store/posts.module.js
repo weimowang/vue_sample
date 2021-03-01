@@ -1,5 +1,5 @@
 import { SET_POSTS, DESTORY_AUTH } from "./mutation.type"
-import { GET_POSTS,CREATE_POSTS,UPDATE_POSTS,DELETE_POSTS } from "./action.type";
+import { GET_POSTS, CREATE_POSTS, UPDATE_POSTS, DELETE_POSTS } from "./action.type";
 import StoreService from "../utility/localstorage"
 
 
@@ -52,10 +52,25 @@ const actions = {
         })
     },
     [CREATE_POSTS](context, payload) {
+        let token = StoreService.getLocstorage('token');
+        // create the post content 
+        return new Promise(resolve => {
+            resolve(res);
+        })
     },
     [UPDATE_POSTS](context, payload) {
+        let token = StoreService.getLocstorage('token');
+        //update by post id and content
+        return new Promise(resolve => {
+            resolve(res);
+        })
     },
     [DELETE_POSTS](context, payload) {
+        let token = StoreService.getLocstorage('token');
+        //delete by post id 
+        return new Promise(resolve => {
+            resolve(res);
+        })
     },
 }
 

@@ -85972,7 +85972,25 @@ var actions = (_actions = {}, _defineProperty(_actions, _action_type__WEBPACK_IM
     context.commit(_mutation_type__WEBPACK_IMPORTED_MODULE_0__["SET_POSTS"], res);
     resolve(res);
   });
-}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["CREATE_POSTS"], function (context, payload) {}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["UPDATE_POSTS"], function (context, payload) {}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["DELETE_POSTS"], function (context, payload) {}), _actions);
+}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["CREATE_POSTS"], function (context, payload) {
+  var token = _utility_localstorage__WEBPACK_IMPORTED_MODULE_2__["default"].getLocstorage('token'); // create the post content 
+
+  return new Promise(function (resolve) {
+    resolve(res);
+  });
+}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["UPDATE_POSTS"], function (context, payload) {
+  var token = _utility_localstorage__WEBPACK_IMPORTED_MODULE_2__["default"].getLocstorage('token'); //update by post id and content
+
+  return new Promise(function (resolve) {
+    resolve(res);
+  });
+}), _defineProperty(_actions, _action_type__WEBPACK_IMPORTED_MODULE_1__["DELETE_POSTS"], function (context, payload) {
+  var token = _utility_localstorage__WEBPACK_IMPORTED_MODULE_2__["default"].getLocstorage('token'); //delete by post id 
+
+  return new Promise(function (resolve) {
+    resolve(res);
+  });
+}), _actions);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: state,
   actions: actions,
