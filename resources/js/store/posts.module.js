@@ -1,14 +1,15 @@
-import { SET_POSTS, DESTORY_AUTH } from "./mutation.type"
+import { SET_POSTS } from "./mutation.type"
 import { GET_POSTS, CREATE_POSTS, UPDATE_POSTS, DELETE_POSTS } from "./action.type";
 import StoreService from "../utility/localstorage"
+import axios from "axios";
 
 
 const state = {
-    posts: {}
+    posts: []
 }
 
 const getters = {
-    get_posts() {
+    post_datas() {
         return state.posts;
     },
 }
@@ -22,54 +23,38 @@ const mutations = {
 
 const actions = {
     [GET_POSTS](context, payload) {
-        let token = StoreService.getLocstorage('token');
         return new Promise(resolve => {
-            let res = {
-                data: [{
-                    id: 1,
-                    title: 'title1',
-                    author: 'vincent',
-                    content: 'content smaple1 content smaple1 content smaple1 content smaple1'
-                }, {
-                    id: 2,
-                    title: 'title2',
-                    author: 'vincent',
-                    content: 'content smaple2 content smaple2 content smaple2 content smaple2 content smaple2'
-                }, {
-                    id: 3,
-                    title: 'title3',
-                    author: 'vincent',
-                    content: 'content smaple3 content smaple3 content smaple3 content smaple3'
-                }, {
-                    id: 4,
-                    title: 'title4',
-                    author: 'vincent',
-                    content: 'content smaple4 content smaple4 content smaple4'
-                }]
-            };
-            context.commit(SET_POSTS, res);
-            resolve(res);
-        })
+            axios.get("/api/posts")
+                .then((res) => {
+                    context.commit(SET_POSTS, res);
+                    resolve(res);
+                });
+        });
     },
     [CREATE_POSTS](context, payload) {
-        let token = StoreService.getLocstorage('token');
-        // create the post content 
+        // create the post content
         return new Promise(resolve => {
-            resolve(res);
+            axios.post("/api/posts", payload).then((res) => {
+                resolve(res);
+            })
         })
     },
     [UPDATE_POSTS](context, payload) {
-        let token = StoreService.getLocstorage('token');
         //update by post id and content
         return new Promise(resolve => {
-            resolve(res);
+            axios.put("/api/posts/" + payload.id, payload)
+                .then(function (res) {
+                    resolve(res);
+                })
         })
     },
     [DELETE_POSTS](context, payload) {
-        let token = StoreService.getLocstorage('token');
         //delete by post id 
         return new Promise(resolve => {
-            resolve(res);
+            axios.delete("/api/posts/" + payload.id)
+                .then(function (res) {
+                    resolve(res);
+                })
         })
     },
 }

@@ -48,11 +48,19 @@ export default {
           name: "Profile",
           type: "Profile",
           txt: "帳戶管理",
-          state: true,
+          state: false,
           // icon: 'fa fa-tag context-menu__title-icon',
         },
         {
           id: 2,
+          name: "Post",
+          type: "Post",
+          txt: "文章管理",
+          state: false,
+          // icon: 'fa fa-tag context-menu__title-icon',
+        },
+        {
+          id: 3,
           name: "Login",
           type: "Login",
           txt: "登入",
@@ -77,7 +85,16 @@ export default {
   computed: {
     ...mapGetters(["currentUser", "check_Authenticated"]),
     menuList() {
-      this.menuData[2].state = !this.check_Authenticated;
+      this.menuData = this.menuData.map((e, i) => {
+        if (i === 0) {
+          e.state = true;
+        } else if (i === 3) {
+          e.state = !this.check_Authenticated;
+        } else {
+          e.state = this.check_Authenticated;
+        }
+        return e;
+      });
       return this.menuData;
     },
   },

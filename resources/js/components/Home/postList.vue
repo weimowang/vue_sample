@@ -2,15 +2,15 @@
   <div>
     <div
       class="post_wrap"
-      v-for="(post, key, index) in posts_data"
+      v-for="(post, key, index) in post_datas"
       :key="index"
     >
       <div class="left_p">
-           <div class="left_p_img"></div>
+        <div class="left_p_img"></div>
       </div>
       <div class="right_p">
         <div class="p_title">{{ post.title }}</div>
-        <div class="content">{{ post.content }}</div>
+        <div class="content">{{ post.body }}</div>
         <div class="author">{{ post.author }}</div>
       </div>
     </div>
@@ -18,18 +18,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   name: "PostList",
   components: {},
   props: {
-    posts_data: Array,
+    post_datas: Array,
   },
-  methods: {
-    to_p_detail() {
-      //this.$router.push({name:'postdetail'})
-    },
-  },
+  methods: {},
 };
 </script>
 <style scoped>

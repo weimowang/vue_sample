@@ -1,6 +1,6 @@
 <template>
   <div class="home_wrap">
-    <PostList :posts_data.sync="posts_data" :class="['left_wrap']"></PostList>
+    <PostList :post_datas.sync="post_datas" :class="['left_wrap']"></PostList>
     <Sidetoolbar :class="['right_wrap']"></Sidetoolbar>
   </div>
 </template>
@@ -20,17 +20,15 @@ export default {
   },
   data() {
     return {
-      posts_data: [],
     };
   },
   computed: {
-    ...mapGetters(["currentUser", "check_Authenticated"]),
+    ...mapGetters(["currentUser", "check_Authenticated", "post_datas"]),
   },
   mounted: function () {
-    this.$store.dispatch(GET_POSTS, {}).then((res) => {
-      this.posts_data = res.data;
+    this.$store.dispatch(GET_POSTS).then((res) => {
+      //success todo
     });
   },
-  methods: {},
 };
 </script>
