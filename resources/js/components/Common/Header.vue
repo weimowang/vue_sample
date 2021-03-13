@@ -2,7 +2,7 @@
   <div>
     <nav class="menu">
       <i class="fas fa-user"></i>
-      <a id="menubtn" class="toggle-nav" href="#" @click="toggle">&#9776;</a>
+      <a id="menubtn" class="toggle-nav" href="#" @click.prevent="toggle">&#9776;</a>
       <div class="menu-logo">
         <router-link :to="{ name: 'Home' }" style="text-decoration: none"
           >Sample Blog</router-link
@@ -17,7 +17,7 @@
         >
           <router-link :to="{ name: item.type }">{{ item.txt }}</router-link>
         </li>
-        <li class="user_info" v-if="check_Authenticated" @click="Logout()">
+        <li class="user_info" v-if="check_Authenticated" @click.prevent="Logout()">
           <font-awesome-icon icon="user" style="padding-right: 0.4em" />
           <span>{{ currentUser.username }}</span>
           <div class="logout">登出</div>

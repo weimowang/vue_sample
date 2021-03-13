@@ -46,6 +46,32 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        if ($exception) {
+            return $this->handleApiException($request, $exception);
+        } else {
+            return parent::render($request, $exception);
+        }
+    }
+
+    /**
+     * handle th sql error 
+     */
+    private function handleApiException($request, Exception $exception)
+    {
+        $statusCode = 500;
+        $response = [];
+        $response['ok'] = false;
+        $response['errcode'] = '500';
+        $response['msg'] = $exception;
+        switch ($exception->getCode()) {
+            case '22001':
+                $statusCode = 200;
+                $response['errcode'] = '999';
+                return response()->json($response, $statusCode);
+                break;
+            default:
+                return response()->json($response, $statusCode);
+                break;
+        }
     }
 }

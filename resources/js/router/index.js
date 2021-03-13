@@ -12,6 +12,7 @@ import Profile from '../components/Profile/Profile.vue'
 import Errorpath from '../components/Errorpath/Errorpath.vue'
 
 import Post from '../components/Post/Post.vue';
+import Postdetail from '../components/Home/Postdetail.vue';
 
 
 export default new VueRouter({
@@ -36,6 +37,11 @@ export default new VueRouter({
             path: '/post',
             name: 'Post',
             component: Post
+        },
+        {
+            path: '/postdetail/:postid',
+            name: 'Postdetail',
+            component: Postdetail
         },
         {
             path: '*',

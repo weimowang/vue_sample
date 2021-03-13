@@ -1,3 +1,7 @@
+td {
+    overflow-wrap: break-word;
+}
+
 .postmenu_list {
     display: flex;
     flex-direction: row;
@@ -8,7 +12,7 @@
 
 .pt_item {
     margin: 1em auto;
-    color:rgba(0,0,0,0.4);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .pt_item {
@@ -114,44 +118,49 @@
     height: 4em;
 }
 
-.createform{
+.createform {
     width: 100%;
 }
 
-.update-group{
+.update-group {
     margin-bottom: 1em;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-.update-group label{
+
+.update-group label {
     margin-bottom: .5em;
 }
 
-.update-control{
+.update-control {
     width: 75%;
-    border:none;
+    border: none;
     border-radius: 4px;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-.u_btn{
-    padding:0 1em;
+.u_btn {
+    padding: 0 1em;
     background-color: transparent;
     border-radius: 2px;
-    border:none;
+    border: none;
     color: white;
     transition: .5s all;
 }
-.u_btn.r{
+
+.u_btn.r {
     background-color: rgb(196, 90, 90);
 }
-.u_btn.l{
+
+.u_btn.l {
     background-color: rgb(107, 160, 152);
 }
-.u_btn:hover{
+
+.u_btn:hover {
     cursor: pointer;
 }
+
 .addbtnwrap {
     display: flex;
 }

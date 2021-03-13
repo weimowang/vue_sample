@@ -52,7 +52,7 @@
           <th style="width: 5%">ID</th>
           <th style="width: 10%">作者</th>
           <th style="width: 20%">標題</th>
-          <th style="width: 45%">內容</th>
+          <th style="width: 45%">內容(limit:255)</th>
           <th style="width: 10%">修改</th>
           <th style="width: 10%">刪除</th>
         </tr>
@@ -115,7 +115,6 @@ import {
   CREATE_POSTS,
   UPDATE_POSTS,
   DELETE_POSTS,
-  Ｆ,
 } from "../../store/action.type";
 export default {
   data() {
@@ -147,6 +146,8 @@ export default {
     },
     init: function () {
       this.$store.dispatch(GET_POSTS).then((res) => {});
+      this.titleWarning = false;
+      this.bodyWarning = false;
     },
     create: function () {
       let _self = this;
@@ -154,31 +155,55 @@ export default {
       this.titleWarning = this.post.title.trim().length == 0;
       this.bodyWarning = this.post.body.trim().length == 0;
       if (this.titleWarning || this.bodyWarning) return;
-      this.$store.dispatch(CREATE_POSTS, request_data).then((res) => {
-        _self.init();
-        _self.titleWarning = false;
-        _self.bodyWarning = false;
-        _self.isAdd = false;
-        _self.isactive = "postlist";
-      });
+
+      this.$store
+        .dispatch(CREATE_POSTS, request_data)
+        .then((res) => {
+          if (res.ok) {
+            _self.init();
+            _self.isAdd = false;
+            _self.isactive = "postlist";
+            _self.post = {};
+          } else {
+            if (res.msg.errorInfo[0] === "22001") {
+              alert("長度過長");
+            } else {
+              alert("未知錯誤");
+            }
+          }
+        })
+        .catch((err) => {
+          alert(err);
+        });
     },
     deletepost: function (id) {
       let _self = this;
       this.$store.dispatch(DELETE_POSTS, { id }).then((res) => {
-        if (res.data["ok"]) {
-          _self.init();
-        }
+        _self.init();
       });
     },
     updatepost: function (_post) {
       let _self = this;
-      this.$store.dispatch(UPDATE_POSTS, _post).then((res) => {
-        _self.init();
-        _self.isUpdate = false;
-        _self.update_post.title = "";
-        _self.update_post.body = "";
-        _self.update_post.id = 0;
-      });
+      this.$store
+        .dispatch(UPDATE_POSTS, _post)
+        .then((res) => {
+          if (res.ok) {
+            _self.init();
+            _self.isUpdate = false;
+            _self.update_post.title = "";
+            _self.update_post.body = "";
+            _self.update_post.id = 0;
+          } else {
+            if (res.msg.errorInfo[0] === "22001") {
+              alert("長度過長");
+            } else {
+              alert("未知錯誤");
+            }
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     update: function (post, _index) {
       this.update_post.id = post.id;

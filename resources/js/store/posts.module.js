@@ -23,8 +23,12 @@ const mutations = {
 
 const actions = {
     [GET_POSTS](context, payload) {
+        let url = "/api/posts";
+        if (payload) {
+            url += '/' + payload.id;
+        }
         return new Promise(resolve => {
-            axios.get("/api/posts")
+            axios.get(url)
                 .then((res) => {
                     context.commit(SET_POSTS, res);
                     resolve(res);
@@ -33,27 +37,33 @@ const actions = {
     },
     [CREATE_POSTS](context, payload) {
         // create the post content
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
             axios.post("/api/posts", payload).then((res) => {
-                resolve(res);
+                resolve(res.data);
+            }).catch(err => {
+                reject(err);
             })
         })
     },
     [UPDATE_POSTS](context, payload) {
         //update by post id and content
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
             axios.put("/api/posts/" + payload.id, payload)
                 .then(function (res) {
-                    resolve(res);
+                    resolve(res.data);
+                }).catch(err => {
+                    reject(err);
                 })
         })
     },
     [DELETE_POSTS](context, payload) {
         //delete by post id 
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
             axios.delete("/api/posts/" + payload.id)
                 .then(function (res) {
-                    resolve(res);
+                    resolve(res.data);
+                }).catch(err => {
+                    reject(err);
                 })
         })
     },

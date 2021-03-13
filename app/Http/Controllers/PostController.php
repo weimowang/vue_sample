@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-
+use Exception;
 
 class PostController extends Controller
 {
@@ -49,7 +49,6 @@ class PostController extends Controller
     {
         $ok = false;
         $msg = '';
-        //
         $post = Post::find($id);
         if ($post) {
             $post->title = $request->input('title', '沒有標題');

@@ -1,0 +1,47 @@
+.topbg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 360px;
+    width: 100%;
+    text-align: center;
+}
+
+.pd_title {
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    vertical-align: middle;
+    line-height: 340px;
+    letter-spacing: 10px;
+}
+
+.post_content {
+    padding-top: 2em;
+    width: 60%;
+    margin: 2em auto;
+    letter-spacing: 1px;
+    min-height: 40vh;
+}
+
+.p_footer {
+    width: 100%;
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    height: 15vh;
+}
+
+.author_img {
+    width: 20%;
+}
+
+.author_img img {
+    border-radius: 100%;
+    float: right;
+}
+.author_content {
+    margin-left: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
