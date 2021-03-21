@@ -94,32 +94,36 @@ td {
 }
 
 .createform {
-    margin: 1em;
     display: flex;
     flex-direction: column;
+    width: 90%;
+    margin: 1em auto;
+    border: 1px solid #337275;
+    border-radius: 15px;
 }
 
 .form-group {
     width: 100%;
     display: flex;
-    margin: .4em 0;
+    margin: 1.4em 0;
 }
 
 .control-label {
-    width: 15%;
+    text-align: left;
+    padding-left: 1em;
+    width: 10%;
 }
 
 .form-control {
-    width: 80%;
+    border: none;
+    border-radius: 15px;
+    width: 85%;
     min-height: 2em;
+    background-color: rgba(235, 235, 235, 0.9);
 }
 
 .form-control.postbody {
     height: 4em;
-}
-
-.createform {
-    width: 100%;
 }
 
 .update-group {
@@ -166,9 +170,19 @@ td {
 }
 
 .postpublish {
-    width: 45%;
-    margin: .3em auto;
+    width: 90%;
+    margin: 1.3em auto;
     padding: .3em 1em;
+    background-color: #80bdc0;
+    transition: 1s all;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+.postpublish:hover {
+    cursor: pointer;
+    background-color: #30777a;
 }
 
 .warring {
